@@ -82,3 +82,60 @@ export default class App extends Vue {
 }
 </script>
 ```
+
+### Callback handlers
+
+You can add before and after callback show tooltip for tour.
+You just have to add new parameters to your scenario.
+
+```ts
+  public scenario = [
+    {
+      title: 'Lorem ipsum dolor consectetur adipiscing elit.Pellentesque',
+      selector: '.First_selector',
+      before: this.beforeCallback(),
+      description: `
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque
+        pellentesque mauris sit amet sapien ullamcorper,
+        vel bibendum erat varius. Curabitur efficitur eleifend purus',
+      `,
+    },,
+    {
+      title: 'Lorem ipsum dolor consectetur adipiscing elit.Pellentesque',
+      selector: '.First_selector',
+      afert: this.afterCallback(),
+      description: `
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque
+        pellentesque mauris sit amet sapien ullamcorper,
+        vel bibendum erat varius. Curabitur efficitur eleifend purus',
+      `,
+    },
+  ];
+```
+
+### Props for component
+You can hide mini map for tour:
+
+```ts
+  <AnimTour
+    :scenario="scenario"
+    :is-map-visible="false"
+    ref="animTourInstance"
+  />
+```
+
+And change text for tooltips:
+
+```ts
+  <AnimTour
+    :scenario="scenario"
+    :texts="{
+      next: 'Next',
+      finish: 'End tour',
+      previous: 'Previous',
+    }"
+    ref="animTourInstance"
+  />
+```
+
+
