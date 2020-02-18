@@ -1,0 +1,86 @@
+.AnimTourTooltip
+  top: 300px
+  left: 300px
+  width: 400px
+  padding: 10px
+  position: fixed
+  background: #f6f8fa
+  border: 1px solid #d1d5da
+  @include border-radius(5px)
+  @include box-shadow(0px 2px 2px -1px rgba(0, 0, 0, 0.3))
+  &__content
+    position: relative
+  &__title
+    margin: 0px
+    padding: 0px
+    display: flex
+    font-size: 18px
+    align-items: center
+    padding: 0px 0px 5px
+    border-bottom: 1px solid #ebecec
+  &__text
+    flex: 1
+  &__icon
+    width: 20px
+    margin-right: 5px
+  &__description
+    padding: 0px
+    font-size: 12px
+    line-height: 140%
+    margin: 5px 0px 0px 0px
+  &__tringle-top
+    width: 0
+    left: 0px
+    right: 0px
+    height: 0
+    bottom: -17px
+    margin: auto
+    position: absolute
+    border-style: solid
+    border-width: 6px 6px 0 6px
+    border-color: #d1d5da transparent transparent transparent
+  &__tringle-bottom
+    width: 0
+    left: 0px
+    right: 0px
+    height: 0
+    top: -17px
+    margin: auto
+    position: absolute
+    border-style: solid
+    border-width: 0 6px 6px 6px
+    border-color: transparent transparent #d1d5da transparent
+  &__button
+    height: 25px
+    color: #fff
+    outline: none
+    font-size: 12px
+    padding: 0 10px
+    cursor: pointer
+    text-align: center
+    border-color: #1890ff
+    background-color: #1890ff
+    @include border-radius(4px)
+    border: 1px solid transparent
+    @include transition(all 0.3s ease)
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12)
+    @include box-shadow(0 2px 0 rgba(0, 0, 0, 0.045))
+    &:hover
+      border-color: #40a9ff
+      background-color: #40a9ff
+  &__footer
+    margin-top: 10px
+    text-align: right
+  &__button--end
+    margin-left: 5px
+  &__close
+    top: 0px
+    right: 0px
+    width: 15px
+    display: flex
+    cursor: pointer
+    position: absolute
+    align-items: center
+    @include transition(all 0.3s ease)
+    &:hover
+      fill: #4691f6

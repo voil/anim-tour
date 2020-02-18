@@ -1,0 +1,50 @@
+.AnimTourTimeLine
+  top: 0px
+  left: 10px
+  width: 200px
+  position: fixed
+  padding: 20px 10px
+  &__title
+    font-size: 12px
+    position: relative
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12)
+  &__box
+    cursor: pointer
+    color: #000000
+    position: relative
+    padding: 0px 0px 30px 20px
+    border-left: 2px solid #606161
+    @include transition(all 0.3s ease)
+  &__box--active
+    color: #FFFFFF
+  &__box--end
+    cursor: default
+    padding: 0px 0px 0px 20px
+  &__box--start
+    cursor: default
+  &__index
+    top: 0px
+    left: -10px
+    width: 15px
+    height: 15px
+    display: flex
+    color: #FFFFFF
+    font-size: 10px
+    position: absolute
+    background: #606161
+    align-items: center
+    justify-content: center
+    border: 1px solid #606161
+    @include border-radius(50px)
+    @include transition(all 0.3s ease)
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12)
+    @include box-shadow(0 2px 0 rgba(0, 0, 0, 0.045))
+  &__index--active
+    background: #40a9ff
+    border: 1px solid #40a9ff
+  &__index--small
+    width: 6px
+    height: 6px
+    left: -5px
+  &__index--end
+    top: 4px
