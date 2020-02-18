@@ -129,11 +129,7 @@ And change text for tooltips:
 ```ts
   <AnimTour
     :scenario="scenario"
-    :texts="{
-      next: 'Next',
-      finish: 'End tour',
-      previous: 'Previous',
-    }"
+    :texts="{ next: 'Next', finish: 'End tour', previous: 'Previous' }"
     ref="animTourInstance"
   />
 ```
