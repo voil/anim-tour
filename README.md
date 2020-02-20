@@ -134,4 +134,14 @@ And change text for tooltips:
   />
 ```
 
+Change color for tooltips:
+
+```ts
+  <AnimTour
+    color="#8e44ad"
+    :scenario="scenario"
+    ref="animTourInstance"
+  />
+```
+
 

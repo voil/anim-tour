@@ -6,6 +6,7 @@ import {
 } from 'vue-property-decorator';
 import {
   TextPropertiesInterface,
+  ColorPropertiesInterface,
   ScenarioPropertiesInterface,
 } from '@/support/interfaces';
 
@@ -42,9 +43,26 @@ export default class AnimTourTimeLine extends Vue {
   public texts: TextPropertiesInterface;
 
   /**
+   * @var String
+   */
+  @Prop({ type: String, default: '#1890ff' })
+  public color: string;
+
+  /**
    * @var Number
    */
   public step: number;
+
+  /**
+   * Method computed to set color.
+   * @return ColorPropertiesInterface
+   */
+  public get getMainColorTimeline(): ColorPropertiesInterface {
+    return {
+      '--background': this.color,
+      '--background-hover': this.color,
+    };
+  }
 
   /**
    * Emit change step for tour.

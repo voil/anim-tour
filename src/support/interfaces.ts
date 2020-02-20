@@ -6,6 +6,12 @@ export interface MaskPropertiesInterface {
   padding: number;
 }
 
+export interface ColorPropertiesInterface {
+  [key: string]: string;
+  '--background': string;
+  '--background-hover': string;
+}
+
 export interface ScenarioPropertiesInterface {
   [key: string]: string|undefined|object;
   title: string;

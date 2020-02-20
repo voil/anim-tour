@@ -35,15 +35,18 @@
         <button
           v-if="currentIndex > 0"
           @click="() => changeStepTour('previous')"
+          :style="getMainColorButton"
           class="AnimTourTooltip__button">{{texts.previous}}</button>
         <button
           @click="() => changeStepTour('next')"
           v-if="currentIndex < scenario.length-1"
+          :style="getMainColorButton"
           class="AnimTourTooltip__button AnimTourTooltip__button--end">
           {{texts.next}}
         </button>
         <button
           @click="stopTour"
+          :style="getMainColorButton"
           v-if="currentIndex === scenario.length-1"
           class="AnimTourTooltip__button AnimTourTooltip__button--end">
           {{texts.finish}}

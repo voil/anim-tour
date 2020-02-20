@@ -9,9 +9,11 @@ import {
   MaskPropertiesInterface,
   TextPropertiesInterface,
   SettingsTooltipInterface,
+  ColorPropertiesInterface,
   ScenarioPropertiesInterface,
   PositionPropertiesInterface,
 } from '@/support/interfaces';
+import * as Color from 'color';
 
 /**
 * AnimTourTooltip
@@ -44,6 +46,12 @@ export default class AnimTourTooltip extends Vue {
    */
   @Prop({ type: Object })
   public texts: TextPropertiesInterface;
+
+  /**
+   * @var String
+   */
+  @Prop({ type: String, default: '#1890ff' })
+  public color: string;
 
   /**
    * @var Number
@@ -86,6 +94,17 @@ export default class AnimTourTooltip extends Vue {
     this.position = {
       x: this.getXPosition(boundingClientRect),
       y: this.getYPosition(boundingClientRect),
+    };
+  }
+
+  /**
+   * Method computed to set color.
+   * @return ColorPropertiesInterface
+   */
+  public get getMainColorButton(): ColorPropertiesInterface {
+    return {
+      '--background': this.color,
+      '--background-hover': Color(this.color).lighten(0.2),
     };
   }
 

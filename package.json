@@ -1,7 +1,7 @@
 {
   "name": "@voil/anim-tour",
-  "version": "0.0.4",
-  "description": "Simple and very basic tour for your application.",  
+  "version": "0.0.5",
+  "description": "Simple and very basic tour for your application.",
   "author": "Przemysław Drzewicki @voil (przemyslaw.drzewicki@gmail.com)",
   "license": "MIT",
   "scripts": {
@@ -20,13 +20,14 @@
     "vue",
     "vue2",
     "tour"
-  ],  
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/voil/anim-tour.git"
-  },  
+  },
   "typings": "src/shims-tour.d.ts",
   "dependencies": {
+    "color": "^3.1.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",

@@ -2,6 +2,7 @@
   <div class="AnimTour" ref="animTourInstance">
     <AnimTourTooltip
       :texts="texts"
+      :color="color"
       :scenario="scenario"
       v-on:stopTour="stopTour"
       v-if="settingsAnimTour.isToolTipVisible"
@@ -12,6 +13,7 @@
     />
     <AnimTourTimeLine
       :texts="texts"
+      :color="color"
       v-if="isMapVisible"
       v-on:setStep="setStep"
       v-on:stopTour="stopTour"

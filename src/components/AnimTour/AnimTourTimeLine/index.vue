@@ -11,6 +11,7 @@
       @click="() => index === currentIndex? {} : setStep(index)"
     >
       <div
+      :style="getMainColorTimeline"
       :class="`AnimTourTimeLine__index
         ${index === currentIndex? 'AnimTourTimeLine__index--active' : ''}`"
       >{{index+1}}</div>

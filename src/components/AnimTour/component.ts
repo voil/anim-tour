@@ -52,6 +52,12 @@ export default class AnimTour extends Vue {
   public isMapVisible: boolean;
 
   /**
+   * @var String
+   */
+  @Prop({ type: String, default: '#1890ff' })
+  public color: string;
+
+  /**
    * @var TextProperties
    */
   @Prop({
@@ -383,23 +389,46 @@ export default class AnimTour extends Vue {
       }
 
       const boundingClientRect = element.getBoundingClientRect();
-      if (element.nodeName === 'IMG') {
-        hLoadImage(element.src, (size) => {
-          const rect = {
-            x: boundingClientRect.x,
-            y: element.offsetTop,
-            ...size,
-          };
-          hScrollTo(element, () => {
-            resolve(this.setMaskProperties(rect as DOMRect, element));
-          });
-        });
-      } else {
-        hScrollTo(element, () => {
-          resolve(this.setMaskProperties(boundingClientRect, element));
-        });
-      }
+      this[element.nodeName === 'IMG' ? 'resolveElementImage' : 'resolveAnyElement'](
+        element,
+        boundingClientRect,
+        resolve,
+      );
       return null;
     });
+  }
+
+  /**
+   * Method to get properties for any element.
+   * @param element: Element|null = null
+   * @param boundingClientRect: DOMRect|null = null
+   * @param (value?: MaskPropertiesInterface | PromiseLike<MaskPropertiesInterface>) => void
+   */
+  private resolveAnyElement(
+    element: ElementInterface|null = null,
+    boundingClientRect: DOMRect|null = null,
+    resolve: (value?: MaskPropertiesInterface | PromiseLike<MaskPropertiesInterface>) => void,
+  ): void {
+    hScrollTo(element, () => resolve(this.setMaskProperties(boundingClientRect, element)));
+  }
+
+  /**
+   * Method to get properties for image element.
+   * @param element: Element|null = null
+   * @param boundingClientRect: DOMRect|null = null
+   * @param (value?: MaskPropertiesInterface | PromiseLike<MaskPropertiesInterface>) => void
+   */
+  private resolveElementImage(
+    element: ElementInterface|null = null,
+    boundingClientRect: DOMRect|null = null,
+    resolve: (value?: MaskPropertiesInterface | PromiseLike<MaskPropertiesInterface>) => void,
+  ): void {
+    hLoadImage(element.src,
+      (size) => hScrollTo(element,
+        () => resolve(this.setMaskProperties({
+          x: boundingClientRect.x,
+          y: element.offsetTop,
+          ...size,
+        } as DOMRect, element))));
   }
 }
